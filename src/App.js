@@ -8,9 +8,29 @@ const App = () => {
 
   const inputEvent = (event ) => {
     console.log(event.target.value)
+    console.log(event.target.name)
     
+    const value = event.target.value;
+    const name = event.target.name;
+
+    setFullName((preValue) => {
+     // console.log(preValue)
+     if(name === 'fname'){
+       return {
+        fname: value,
+       lname: preValue.lname,
+      }
+      
+       }else if(name === 'lname'){
+        return {
+         fname: preValue.fname,
+        lname: value,
+       
+     }
+    })
   }
-  const onSubmit = (event) => {
+  
+   const onSubmit = (event) => {
     event.preventDefault();
     alert('form submitted')
   }
