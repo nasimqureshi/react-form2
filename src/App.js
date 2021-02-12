@@ -14,22 +14,19 @@ const App = () => {
     const name = event.target.name;
 
     setFullName((preValue) => {
-     // console.log(preValue)
-     if(name === 'fname'){
-       return {
-        fname: value,
-       lname: preValue.lname,
-      }
-      
-       }else if(name === 'lname'){
+      if(name === 'fName'){
         return {
-         fname: preValue.fname,
-        lname: value,
-       
-     }
+          fname: value,
+          lname: preValue.lname,
+        }
+      } else if(name === 'lName'){
+        return {
+          fname: preValue.fname,
+          lname: value
+        }
+      }
     })
   }
-  
    const onSubmit = (event) => {
     event.preventDefault();
     alert('form submitted')
@@ -41,23 +38,23 @@ const App = () => {
     <form onSubmit={onSubmit}>
     <div>
     <h1>Hello, {fullName.fname} {fullName.lname} </h1>
-  <input type="text" 
-  placeholder="Enter Your Name"
-  name='fName'
-  onChange={inputEvent} 
-  value= {fullName.fname}/>
-  <br />
-  <input type="text" 
-  placeholder="Enter Your Last Name"
-  name='lName'
-  onChange={inputEvent} 
-  value= {fullName.lName}/>
-    <button type="submit">
-      Submit Me
-    </button>
+    <input type="text" 
+    placeholder="Enter Your Name"
+    name='fName'
+    onChange={inputEvent} 
+    value= {fullName.fname}/>
+    <br />
+    <input type="text" 
+    placeholder="Enter Your Last Name"
+    name='lName'
+    onChange={inputEvent} 
+    value= {fullName.lName}/>
+      <button type="submit">
+        Submit Me
+      </button>
+      </div>
+      </form>
     </div>
-    </form>
-  </div>
   </>
   )
 }
